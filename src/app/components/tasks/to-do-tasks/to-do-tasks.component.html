@@ -1,0 +1,16 @@
+<h3>TO DO TASKS ({{toDoTasks.length}}):</h3>
+<table *ngIf="toDoTasks.length">
+    <tr>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Update to:</th>
+    </tr>
+    <tr *ngFor="let task of toDoTasks">
+        <td>{{task.description}}</td>
+        <td>TO DO</td>
+        <td><button (click)="moveToComplete.emit(task.id)">COMPLETE</button></td>
+    </tr>
+    <tr>
+        <td colspan="3"><button (click)="clearInToDoTasks.emit()">CLEAR IN TO DO TASKS LIST</button></td>
+    </tr>
+</table>

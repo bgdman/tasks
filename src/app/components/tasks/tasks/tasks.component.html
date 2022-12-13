@@ -1,0 +1,14 @@
+<div *ngIf="noTasksStored; else tasksTemplate">
+    <p>NO TASKS STORED! LOAD DEAFAULT ONES?</p>
+    <button (click)="loadDefaultTasks()">LOAD DEFAULT</button>
+</div>
+
+<ng-template #tasksTemplate>
+    <app-to-do-tasks [toDoTasks]="toDoTasks" (moveToComplete)="updateTask($event)" (clearInToDoTasks)="clearTasksPartially(true)"></app-to-do-tasks>
+    <app-completed-tasks [completedTasks]="completedTasks" (moveInToDo)="updateTask($event)" (clearCompletedTasks)="clearTasksPartially(false)"></app-completed-tasks>
+    <br>
+    <br>
+    <br>
+    <button (click)="clearTasks()">REMOVE ALL TASKS</button>
+    <button (click)="loadDefaultTasks()">RESTORE DEFAULT TASKS</button>
+</ng-template>

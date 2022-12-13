@@ -1,0 +1,16 @@
+<h3>COMPLETED TASKS ({{completedTasks.length}}):</h3>
+<table *ngIf="completedTasks.length">
+    <tr>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Update to:</th>
+    </tr>
+    <tr *ngFor="let task of completedTasks">
+        <td>{{task.description}}</td>
+        <td>COMPLETED</td>
+        <td><button (click)="moveInToDo.emit(task.id)">IN TO DO</button></td>
+    </tr>
+    <tr>
+        <td colspan="3"><button (click)="clearCompletedTasks.emit()">CLEAR COMPLETED TASKS LIST</button></td>
+    </tr>
+</table>
